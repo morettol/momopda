@@ -29,56 +29,56 @@ Each component has comprehensive documentation on usage, examples, and implement
 
 | Component | URL |
 |-----------|-----|
-| Activity Icons | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/activity-icons/ |
-| Buttons | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/buttons/ |
-| Course Cards | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/course-cards/ |
-| Form Elements | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/form-elements/ |
-| Footer | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/footer/ |
-| Icons | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/icons/ |
-| Notification Badges | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/notification-badges/ |
-| Notifications | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/notifications/ |
-| Toggle Input | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/toggle-input/ |
-| Search Input | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/search-input/ |
-| Show More | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/show-more/ |
-| Collapsible Sections | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/collapsable-sections/ |
-| Task Indicator | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/task-indicator/ |
-| Action Menus | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/action-menus/ |
-| Dropdowns | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/dropdowns/ |
-| HTML Modals | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/html-modals/ |
-| Dynamic Tabs | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/components/dynamic-tabs/ |
+| Activity Icons | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/activity-icons/ |
+| Buttons | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/buttons/ |
+| Course Cards | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/course-cards/ |
+| Form Elements | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/form-elements/ |
+| Footer | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/footer/ |
+| Icons | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/icons/ |
+| Notification Badges | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/notification-badges/ |
+| Notifications | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/notifications/ |
+| Toggle Input | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/toggle-input/ |
+| Search Input | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/search-input/ |
+| Show More | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/show-more/ |
+| Collapsible Sections | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/collapsable-sections/ |
+| Task Indicator | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/task-indicator/ |
+| Action Menus | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/action-menus/ |
+| Dropdowns | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/dropdowns/ |
+| HTML Modals | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/html-modals/ |
+| Dynamic Tabs | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/dynamic-tabs/ |
 
 ### JavaScript Functionality
 Interactive utilities and data visualization components.
 
 | Feature | URL |
 |---------|-----|
-| Confirm Dialog | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/javascript/confirm/ |
-| Toast Notifications | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/javascript/toast/ |
-| Emoji Picker | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/javascript/emojipicker/ |
-| Sortable Lists | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/javascript/sortable-list/ |
-| Moodle Charts | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/javascript/moodle-charts/ |
+| Confirm Dialog | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/javascript/confirm/ |
+| Toast Notifications | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/javascript/toast/ |
+| Emoji Picker | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/javascript/emojipicker/ |
+| Sortable Lists | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/javascript/sortable-list/ |
+| Moodle Charts | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/javascript/charts/ |
 
 ### Design Standards & Themes
 Guidelines for colors, spacing, typography, layout, and visual hierarchy.
 
 | Standard | URL |
 |----------|-----|
-| Colours | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/themes/colours/ |
-| Grids | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/themes/grids/ |
-| Positioning | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/themes/positioning/ |
-| Spacing | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/themes/spacing/ |
-| Icon Sizes | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/themes/icon-sizes/ |
-| Layout | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/themes/layout/ |
-| Text | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/themes/text/ |
+| Colours | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/themes/colours/ |
+| Grids | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/themes/grids/ |
+| Positioning | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/themes/positioning/ |
+| Spacing | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/themes/spacing/ |
+| Icon Sizes | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/themes/icon-sizes/ |
+| Layout | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/themes/layout/ |
+| Text | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/themes/text/ |
 
 ### Accessibility Guidelines
 Standards for accessible UI implementation.
 
 | Guideline | URL |
 |-----------|-----|
-| Links | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/accessibility/links/ |
-| Colour Contrast | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/accessibility/colour-contrast/ |
-| Keyboard Access | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/library/accessibility/keyboard-access/ |
+| Links | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/accessibility/links/ |
+| Colour Contrast | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/accessibility/colour-contrast/ |
+| Keyboard Access | https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/accessibility/keyboard-access/ |
 
 ### Component Library Documentation
 Internal reference for contributing to the library.
