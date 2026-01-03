@@ -9,16 +9,107 @@ This document provides a condensed reference for implementing UI features that a
 **Key Philosophy:** Developers should leverage existing documented components rather than creating custom solutions. This reduces redundancy, improves consistency, and enhances user experience.
 
 **Design Foundation:**
-- Bootstrap 5 components are included with every Moodle 5.x+ installation (with backwards compatibility for Bootstrap 4 syntax through Moodle 6.0)
+- Bootstrap 4 components are included with Moodle 4.5 installation.
 - All components represent approved, safe building blocks for frontend development
 
-**Bootstrap 5 Key Changes (Moodle 5.x+):**
-- Class name updates: `.badge-*` → `.text-bg-*`, `.ml-*` → `.ms-*`, `.text-left` → `.text-start`, `.sr-only` → `.visually-hidden`
-- Data attributes use namespacing: `data-toggle` → `data-bs-toggle`, `data-target` → `data-bs-target`
-- jQuery removed from Bootstrap 5 (but Moodle provides compatibility layer through 6.0)
-- Form classes updated: `.custom-select` → `.form-select`, `.custom-check` → `.form-check`
+**Bootstrap 4/5 Hybrid Support (Moodle 4.5):**
+- Bootstrap 4.6 remains the primary version
+- Bootstrap 5 syntax fully supported via bridge layer
+- Class name migration: BOTH `.ml-*` AND `.ms-*` work (BS4 + BS5 coexistence)
+- Data attributes: BOTH `data-toggle` AND `data-bs-toggle` supported
+- jQuery 3.6.x is required in Moodle 4.5
+- Form classes: BOTH `.custom-select` AND `.form-select` work simultaneously
+- **Recommended:** Use Bootstrap 5 syntax for new development
 
 **Target Audience:** Designers, developers, and UX professionals creating core Moodle code or extensions.
+
+---
+
+## **Moodle 4.5 Bootstrap Migration Status**
+
+**⚠️ Important:** Moodle 4.5 is in a **transitional state** between Bootstrap 4 and Bootstrap 5. Understanding this hybrid state is critical for plugin development.
+
+### **Current State: Steps 1-4 Completed**
+
+Moodle 4.5 has completed the first four steps of the Bootstrap 5 migration (steps 5-7 are completed in Moodle 5.0):
+
+#### **✅ Step 1: PopperJS Upgrade (v1 → v2)**
+- **Status:** COMPLETED in Moodle 4.5
+- **Impact:** Tooltip and dropdown positioning library upgraded
+- **Developer Action:** 
+  - Use PopperJS v2 API if customizing positioning
+  - Legacy PopperJS v1 syntax no longer supported
+  - Documentation: https://popper.js.org/docs/v2/migration-guide/
+
+#### **✅ Step 2: SCSS Deprecation Process**
+- **Status:** ACTIVE in Moodle 4.5
+- **Impact:** Bootstrap 4 SCSS features marked for removal
+- **Deprecated Functions:**
+  - `theme-color-level()` → Use `shift-color()` instead
+  - `color-yiq()` → Use custom contrast functions
+  - String-based color functions deprecated
+- **Developer Action:**
+  - Review deprecation warnings in SCSS compilation
+  - Update custom theme SCSS to avoid deprecated functions
+  - Test themes with `--strict` mode enabled
+
+#### **✅ Step 3: Refactoring BS4 Features Dropped in BS5**
+- **Status:** COMPLETED in Moodle 4.5
+- **Refactored Components:**
+  - **Badges:** `.badge-*` classes retain BS4 behavior, but BS5 `.text-bg-*` equivalents available
+  - **Forms:** `.custom-select`, `.custom-check` remain functional alongside BS5 alternatives
+  - **Utilities:** `.sr-only` works alongside `.visually-hidden`
+  - **Spacing:** Both `.ml-*` (BS4) and `.ms-*` (BS5) supported
+- **Developer Action:**
+  - **New development:** Use Bootstrap 5 syntax where possible
+  - **Legacy code:** Bootstrap 4 syntax remains fully functional
+  - Both syntaxes work simultaneously during transition
+
+#### **✅ Step 4: Bootstrap 5 Bridge Layer**
+- **Status:** ACTIVE in Moodle 4.5
+- **Purpose:** Maintains backwards compatibility while enabling BS5 adoption
+- **Bridge Features:**
+  - Class name aliasing (`.ml-2` automatically maps to `.ms-2` internally)
+  - Data attribute handling (`data-toggle` works alongside `data-bs-toggle`)
+  - jQuery compatibility layer for Bootstrap components
+  - SCSS variable mapping between BS4 and BS5 naming
+- **Developer Action:**
+  - **Recommended:** Write new code using Bootstrap 5 syntax
+  - **Supported:** Bootstrap 4 syntax remains fully compatible
+  - **Benefit:** Forward compatibility with Moodle 5.0+
+
+### **🎯 Development Recommendations for Moodle 4.5**
+
+| Scenario | Recommendation |
+|----------|----------------|
+| **New Plugin Development** | Use Bootstrap 5 syntax (`.ms-*`, `.visually-hidden`, `.form-select`) for forward compatibility |
+| **Updating Existing Plugin** | Both BS4 and BS5 syntax work; prioritize BS5 for new features |
+| **Custom Theme SCSS** | Audit for deprecated SCSS functions; use `shift-color()` instead of `theme-color-level()` |
+| **JavaScript Components** | Use `data-bs-*` attributes; jQuery bridge layer handles compatibility |
+| **Testing** | Test with both BS4 and BS5 class names to ensure bridge layer works |
+
+### **⏭️ Moodle 5.0 Changes (Steps 5-7)**
+
+**NOT yet in Moodle 4.5** (available in Moodle 5.0+):
+- Step 5: Bootstrap 5 becomes the default
+- Step 6: Bootstrap 4 compatibility layer deprecation warnings
+- Step 7: Bootstrap 4 bridge removal (Moodle 6.0+)
+
+For detailed Bootstrap 5 migration guidance (class name changes, data attributes, SCSS functions, etc.), consult:
+**https://moodledev.io/docs/4.5/guides/bs5migration**
+
+Use this page if you encounter:
+- Deprecated Bootstrap 4 class names in existing code
+- Data attribute compatibility issues
+- SCSS function updates needed (e.g., `theme-color-level()` → `shift-color()`)
+- Form or badge component upgrades
+
+### **📚 Migration Resources**
+
+- **Official BS5 Migration Guide:** https://moodledev.io/docs/4.5/guides/bs5migration
+- **PopperJS v2 Migration:** https://popper.js.org/docs/v2/migration-guide/
+- **Bootstrap 5 Documentation:** https://getbootstrap.com/docs/5.3/
+- **SCSS Deprecations:** https://moodledev.io/general/development/policies/deprecation/scss-deprecation
 
 ---
 
@@ -142,25 +233,10 @@ When implementing UI features for Moodle:
 
 ---
 
-## Bootstrap 5 Migration Reference
-
-For detailed Bootstrap 5 migration guidance (class name changes, data attributes, SCSS functions, etc.), consult:
-**https://moodledev.io/docs/5.0/guides/bs5migration**
-
-Use this page if you encounter:
-- Deprecated Bootstrap 4 class names in existing code
-- Data attribute compatibility issues
-- SCSS function updates needed (e.g., `theme-color-level()` → `shift-color()`)
-- Form or badge component upgrades
-
----
-
 ## Additional Resources
 
 - **Official Moodle Component Library:** https://componentlibrary.moodle.com/
-- **Bootstrap 5 Documentation:** https://getbootstrap.com/docs/5.0/
-- **Moodle Developer Documentation:** https://docs.moodle.org/
-- **Bootstrap 5 Migration Guide:** https://moodledev.io/docs/5.0/guides/bs5migration
+- **Moodle Developer Documentation:** https://moodledev.io/docs/4.5
 
 ---
 
