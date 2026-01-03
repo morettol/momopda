@@ -22,7 +22,7 @@
 **I18n**: Externalize all strings
 **Database**: DML API only, no raw SQL
 **Capabilities**: Implement proper permission checking
-**Accessibility**: WCAG 2.1 AA compliance
+**Accessibility**: WCAG 2.2 AA compliance
 
 ## Version Information
 
