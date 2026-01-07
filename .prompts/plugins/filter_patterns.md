@@ -1,6 +1,6 @@
 # Filter Development Patterns and Anti-Patterns
 
-## ⚠️ CRITICAL MOODLE 5.x FILTER PATTERNS & BUG PREVENTION
+## ⚠️ CRITICAL MOODLE 4.5 FILTER PATTERNS & BUG PREVENTION
 
 ### 🚫 Text Filter Implementation Anti-Patterns
 
@@ -269,13 +269,13 @@ $plugin->component = 'my_filter';      // Wrong naming convention
 // ✅ CORRECT - Complete and correctly formatted
 $plugin->component = 'filter_yourfiltername';  // Correct naming
 $plugin->version = 2024010100;                 // YYYYMMDDXX format
-$plugin->requires = 2025040800;                // Moodle 5.0 version
+$plugin->requires = 2024100700;                // Moodle 4.5 version
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = 'v1.0.0';
 
 // Optional dependencies
 $plugin->dependencies = [
-    'mod_glossary' => 2025040800
+    'mod_glossary' => 2024100700
 ];
 ```
 

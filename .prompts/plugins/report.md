@@ -141,13 +141,13 @@ Must define:
 ```php
 $plugin->component = 'report_[reportname]';
 $plugin->version = 2024010100;  // YYYYMMDDXX format
-$plugin->requires = 2025040800; // Moodle 5.0 version
+$plugin->requires = 2024100700; // Moodle 4.5 version
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = 'v1.0';
 
 // Optional: Dependencies on other plugins
 $plugin->dependencies = [
-    'mod_quiz' => 2025040800,  // If report analyzes quiz data
+    'mod_quiz' => 2024100700,  // If report analyzes quiz data
 ];
 ```
 
@@ -772,7 +772,7 @@ Look at: `../moodle/report/completion/index.php`
 
 ## Resources
 
-- Moodle 5.0 Developer Documentation: https://moodledev.io/
+- Moodle 4.5 Developer Documentation: https://moodledev.io/
 - Report Development: https://moodledev.io/docs/apis/plugintypes/report
 - Plugin Development: https://moodledev.io/docs/apis/plugintypes
 - Navigation API: https://moodledev.io/docs/apis/core/navigation

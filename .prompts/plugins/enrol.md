@@ -200,13 +200,13 @@ Must define:
 ```php
 $plugin->component = 'enrol_[pluginname]';
 $plugin->version = 2024010100;  // YYYYMMDDXX format
-$plugin->requires = 2025040800; // Moodle 5.0 version
+$plugin->requires = 2024100700; // Moodle 4.5 version
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = 'v1.0';
 
 // Optional: Dependencies on other plugins
 $plugin->dependencies = [
-    'auth_ldap' => 2025040800,  // If depends on LDAP authentication
+    'auth_ldap' => 2024100700,  // If depends on LDAP authentication
 ];
 ```
 
@@ -631,7 +631,7 @@ require_once($CFG->libdir . '/filelib.php');
 
 ## Resources
 
-- Moodle 5.0 Developer Documentation: https://moodledev.io/
+- Moodle 4.5 Developer Documentation: https://moodledev.io/
 - Enrolment API: https://moodledev.io/docs/apis/core/enrol
 - Plugin Development: https://moodledev.io/docs/apis/plugintypes
 - Enrolment Management: https://moodledev.io/docs/features/enrolment

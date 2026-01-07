@@ -1,6 +1,6 @@
-# Moodle JavaScript Standards for 5.x+
+# Moodle JavaScript Standards for 4.5
 
-This document provides guidelines for JavaScript development in Moodle 5.x and later. Reference this when writing, refactoring, or reviewing JavaScript code.
+This document provides guidelines for JavaScript development in Moodle 4.5. Reference this when writing, refactoring, or reviewing JavaScript code.
 
 ## Quick Do's and Don'ts
 
@@ -14,8 +14,8 @@ This document provides guidelines for JavaScript development in Moodle 5.x and l
 - Use Grunt for compilation and ESLint for code quality
 
 **DON'T:**
-- Use jQuery (deprecated since Moodle 5.x)
-- Use YUI (deprecated - removed from core)
+- Use jQuery (deprecated since Moodle 3.8)
+- Use YUI (deprecated since Moodle 2.9)
 - Use heavy frameworks (React, Angular, Vue) in core code
 - Use jQuery promise methods: `.done()`, `.fail()`, `.always()`
 - Put complex logic in templates (use AMD modules instead)
@@ -125,7 +125,7 @@ grunt watch
 ## Learning Resources
 
 For comprehensive JavaScript guidelines, patterns, and advanced topics:
-**https://moodledev.io/docs/5.0/guides/javascript**
+**https://moodledev.io/docs/4.5/guides/javascript**
 
 Consult this page if you encounter:
 - Complex module organization questions
@@ -150,8 +150,8 @@ If updating legacy code:
 - Use RequireJS for module loading
 - Leverage Moodle's core helper libraries
 
-See https://moodledev.io/docs/5.0/guides/javascript for migration examples.
+See https://moodledev.io/docs/4.5/guides/javascript for migration examples.
 
 ---
 
-*This reference provides condensed JavaScript standards for Moodle 5.x development. For detailed patterns, advanced techniques, and comprehensive examples, visit the full JavaScript guidelines at the URL above.*
+*This reference provides condensed JavaScript standards for Moodle 4.5 development. For detailed patterns, advanced techniques, and comprehensive examples, visit the full JavaScript guidelines at the URL above.*

@@ -149,13 +149,13 @@ Must define:
 ```php
 $plugin->component = 'tiny_[pluginname]';
 $plugin->version = 2024010100;  // YYYYMMDDXX format
-$plugin->requires = 2025040800; // Moodle 5.0 version
+$plugin->requires = 2024100700; // Moodle 4.5 version
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = 'v1.0';
 
 // Optional: Dependencies on other plugins
 $plugin->dependencies = [
-    'editor_tiny' => 2025040800,  // Always depends on TinyMCE
+    'editor_tiny' => 2024100700,  // Always depends on TinyMCE
 ];
 ```
 
@@ -665,7 +665,7 @@ Look at: `../moodle/lib/editor/tiny/plugins/aiplacement/`
 
 ## Resources
 
-- Moodle 5.0 Developer Documentation: https://moodledev.io/
+- Moodle 4.5 Developer Documentation: https://moodledev.io/
 - TinyMCE Plugin API: https://moodledev.io/docs/apis/core/editor/tiny
 - Plugin Development: https://moodledev.io/docs/apis/plugintypes
 - TinyMCE Official Documentation: https://www.tiny.cloud/docs/

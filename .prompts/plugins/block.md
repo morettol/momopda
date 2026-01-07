@@ -62,7 +62,7 @@ Must define:
 ```php
 $plugin->component = 'block_[blockname]';
 $plugin->version = 2024010100;  // YYYYMMDDXX format
-$plugin->requires = 2023100900; // Moodle 5.0 version
+$plugin->requires = 2023100900; // Moodle 4.5 version
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = 'v1.0';
 ```
@@ -226,7 +226,7 @@ Add this to your automated testing checklist:
 
 ## Resources
 
-- Moodle 5.0 Developer Documentation: https://moodledev.io/
+- Moodle 4.5 Developer Documentation: https://moodledev.io/
 - Block Development: https://moodledev.io/docs/apis/core/block
 - Plugin Development: https://moodledev.io/docs/apis/plugintypes
 - Moodle Tracker: https://tracker.moodle.org/

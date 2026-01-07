@@ -1,6 +1,6 @@
-# Question Bank Plugin Development Guide - Moodle 5.x
+# Question Bank Plugin Development Guide - Moodle 4.5
 
-You are developing a Moodle question bank (qbank) plugin for **Moodle 5.0+** with shared question banks. These plugins extend the question bank interface with additional columns, actions, filters, and controls.
+You are developing a Moodle question bank (qbank) plugin for **Moodle 4.5+** with shared question banks. These plugins extend the question bank interface with additional columns, actions, filters, and controls.
 
 ## Plugin Architecture
 
@@ -50,7 +50,7 @@ qbank_yourplugin/
 - **Integration**: "With selected" dropdown menu
 - **Key Pattern**: Users select questions first, then choose bulk action
 - **URL Receives**: `cmid` parameter + selected question IDs as `q[ID]` parameters
-- **Moodle 5.x Note**: Uses new question bank structure with versioning
+- **Moodle 4.5 Note**: Uses new question bank structure with versioning
 
 ### 🎯 Single Action Plugins (Individual Question Operations) 
 - **Purpose**: Actions on one question at a time
@@ -97,7 +97,7 @@ qbank_yourplugin/
 - [ ] ✅ Use `question_require_capability_on()` for individual questions
 - [ ] ✅ Use parameterized database queries
 
-## 🚨 COMPREHENSIVE TESTING CHECKLIST FOR MOODLE 5.x
+## 🚨 COMPREHENSIVE TESTING CHECKLIST FOR MOODLE 4.5
 
 ### Database Compatibility
 - [ ] ✅ Uses {question_versions} table in all queries
@@ -154,18 +154,18 @@ qbank_yourplugin/
 - [ ] ✅ Include all required strings in language file
 - [ ] ✅ Test plugin installation and language string loading
 
-### Advanced Moodle 5.x Features
-- [ ] ✅ Test with Moodle 5.x shared question bank structure
+### Advanced Moodle 4.5 Features
+- [ ] ✅ Test with Moodle 4.5 shared question bank structure
 - [ ] ✅ Verify question creation includes all required tables
 - [ ] ✅ Test question versioning compatibility
 - [ ] ✅ Test with different question bank contexts (course, system)
 - [ ] ✅ Verify background task processing and progress tracking
 
-## Moodle 5.x Database Structure
+## Moodle 4.5 Database Structure
 
 ### Understanding Shared Question Banks
 
-Moodle 5.x uses a **three-table structure** for questions:
+Moodle 4.5 uses a **three-table structure** for questions:
 
 1. **{question}** - Contains question data (name, text, type, etc.)
 2. **{question_versions}** - Links questions to question bank entries with versioning
@@ -204,7 +204,7 @@ qbe.id as questionbankentryid, qbe.idnumber, qbe.ownerid
 qc.id as categoryid, qc.name as categoryname, qc.contextid
 ```
 
-## Question Creation Checklist (Moodle 5.x)
+## Question Creation Checklist (Moodle 4.5)
 
 For any plugin that creates questions, you MUST:
 
@@ -236,7 +236,7 @@ $questionversion->status = \core_question\local\bank\question_version_status::QU
 $questionversion->id = $DB->insert_record('question_versions', $questionversion);
 ```
 
-## Updated URL Structure (Moodle 5.x)
+## Updated URL Structure (Moodle 4.5)
 
 - **Question Bank**: `/question/edit.php` (was `/question/bank/view.php`)
 - **Question Banks Listing**: `/question/banks.php`

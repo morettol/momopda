@@ -101,13 +101,13 @@ Must define:
 ```php
 $plugin->component = 'filter_[filtername]';
 $plugin->version = 2024010100;  // YYYYMMDDXX format
-$plugin->requires = 2025040800; // Moodle 5.0 version
+$plugin->requires = 2024100700; // Moodle 4.5 version
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = 'v1.0';
 
 // Optional: Dependencies on other plugins
 $plugin->dependencies = [
-    'mod_glossary' => 2025040800,  // If depends on glossary module
+    'mod_glossary' => 2024100700,  // If depends on glossary module
 ];
 ```
 
@@ -418,7 +418,7 @@ Look at: `../moodle/filter/mediaplugin/classes/text_filter.php`
 
 ## Resources
 
-- Moodle 5.0 Developer Documentation: https://moodledev.io/
+- Moodle 4.5 Developer Documentation: https://moodledev.io/
 - Filter API: https://moodledev.io/docs/apis/core/filters
 - Plugin Development: https://moodledev.io/docs/apis/plugintypes
 - Filter Management: https://moodledev.io/docs/apis/core/filters/management

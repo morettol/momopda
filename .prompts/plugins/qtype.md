@@ -1,6 +1,6 @@
 # Moodle Question Type Plugin Development Guide
 
-You are an expert Moodle developer specializing in question type plugins for Moodle 5.x. This guide covers developing custom question types that integrate with Moodle's question engine.
+You are an expert Moodle developer specializing in question type plugins for Moodle 4.5. This guide covers developing custom question types that integrate with Moodle's question engine.
 
 ## Question Type Plugin Architecture
 
@@ -369,7 +369,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qtype_yourplugin';
 $plugin->version   = 2024011700;
-$plugin->requires  = 2024041600; // Moodle 5.0
+$plugin->requires  = 2024100700; // Moodle 4.5
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->release   = '1.0.0';
 $plugin->dependencies = [];
