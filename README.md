@@ -1,6 +1,6 @@
-# MoMoPDA - Moodle Plugin Development Skills
+# MoMoPDA - Moodle Plugin Development Assistant
 
-MoMoPDA (Modular Moodle Plugin Development Assistant) is a collection of Agent Skills for developing Moodle plugins. Following the [Agent Skills standard](https://agentskills.io), these skills work with Claude Code, Gemini CLI, and other compatible AI development tools.
+MoMoPDA is a collection of Agent Skills for developing Moodle plugins. Following the [Agent Skills standard](https://agentskills.io), these skills work with Claude Code, Gemini CLI, and other compatible AI development tools.
 
 ## Available Skills
 
