@@ -1,287 +1,147 @@
-# Modular Moodle Plugin Development Assistant (MoMoPDA)
+# MoMoPDA - Moodle Plugin Development Assistant
 
-This repository is a collection of prompts that can be combined in different ways in order to use agentic generative AI for software development in Moodle. Its first version is only tested with Claude Code, but with little modifications, it could be made work with other agent software and backends as well. Pull requests welcome!
+MoMoPDA is a collection of Agent Skills for developing Moodle plugins. Following the [Agent Skills standard](https://agentskills.io), these skills work with Claude Code, Gemini CLI, and other compatible AI development tools.
 
-## File Structure
+## Available Skills
 
-```
-├── AGENTS.md                        # Main orchestrator file
-├── CLAUDE.md                        # Redirect to AGENTS.md
-└── .prompts/  
-    ├── core/
-    │   ├── base-instructions.md     # Core Moodle development principles
-    │   ├── security-checklist.md    # Security requirements
-    │   └── ci-validation.md         # Automated CI quality checks
-    ├── plugins/
-    │   ├── block.md                 # Block plugin development guide
-    │   ├── enrol.md                 # Enrolment plugin development guide
-    │   ├── enrol_patterns.md        # Enrolment plugin patterns and anti-patterns
-    │   ├── filter.md                # Filter plugin development guide
-    │   ├── filter_patterns.md       # Filter plugin patterns and anti-patterns
-    │   ├── mod.md                   # Activity module plugin development guide
-    │   ├── mod_patterns.md          # Activity module plugin patterns and anti-patterns
-    │   ├── qbank.md                 # Question bank plugin development guide
-    │   ├── qbank_patterns.md        # Question bank plugin patterns and anti-patterns
-    │   ├── qtype.md                 # Question type plugin development guide
-    │   ├── qtype_patterns.md        # Question type plugin patterns and anti-patterns
-    │   ├── report.md                # Report plugin development guide
-    │   ├── report_patterns.md       # Report plugin patterns and anti-patterns
-    │   ├── tiny.md                  # TinyMCE editor plugin development guide
-    │   └── tiny_patterns.md         # TinyMCE editor plugin patterns and anti-patterns
-    ├── tasks/
-    │   ├── create.md                # New plugin creation
-    │   ├── bugfix.md                # Bug fixing workflow
-    │   ├── test.md                  # Test creation
-    │   ├── enhance.md               # Feature enhancement
-    │   └── refactor.md              # Code refactoring
-    └── patterns/
-        ├── database.md              # Database operation patterns
-        ├── forms.md                 # Moodle forms patterns
-        ├── navigation.md            # Navigation integration
-        ├── api-usage.md             # Common API usage patterns
-        └── html_writer.md           # HTML generation best practices
-```
-## Moodle Core Repository
+| Skill | Description |
+|-------|-------------|
+| `moodle-core` | Core Moodle 5.x development: coding standards, security, JavaScript, CI validation |
+| `moodle-activity` | Activity module plugins (mod_*) |
+| `moodle-block` | Block plugins (block_*) |
+| `moodle-qtype` | Question type plugins (qtype_*) |
+| `moodle-qbank` | Question bank plugins (qbank_*) |
+| `moodle-enrol` | Enrolment plugins (enrol_*) |
+| `moodle-filter` | Filter plugins (filter_*) |
+| `moodle-tiny` | TinyMCE editor plugins (tiny_*) |
+| `moodle-report` | Report plugins (report_*) |
+| `moodle-local` | Local plugins (local_*) |
 
-The Moodle core repository should be cloned alongside this repository for reference:
-```
-../moodle/          # Moodle core repository
-./                  # This plugin repository
+## Installation
+
+### Claude Code
+
+```bash
+# Clone this repository
+git clone https://github.com/wilenius/momopda.git
+
+# Or use as a submodule in your plugin project
+git submodule add https://github.com/wilenius/momopda.git .skills
 ```
 
-This way the agent can access Moodle code for reference, if needed.
+Skills are automatically discovered from the `skills/` directory.
 
-## Usage Examples
+### Other AI Tools
 
-### Example 1: New Block Plugin
-**Detected**: `block_` repository name
-**Loads**:
-- core/base-instructions.md
-- plugins/block.md  
-- tasks/create.md
-- core/security-checklist.md
+Copy the desired skill folders to your tool's skill directory, or reference them directly.
 
-### Example 2: Bug Fix in Question Type
-**Detected**: `qtype` repository name + git branch "fix/calculation-error"
-**Loads**:
-- core/base-instructions.md
-- plugins/qtype.md
-- plugins/qtype_patterns.md
-- tasks/bugfix.md
-- patterns/database.md (if DB operations detected)
-- core/security-checklist.md
+## Usage
 
-### Example 3: New Enrolment Plugin
-**Detected**: `enrol_` repository name
-**Loads**:
-- core/base-instructions.md
-- plugins/enrol.md
-- plugins/enrol_patterns.md
-- tasks/create.md
-- core/security-checklist.md
+### Activate Skills
 
-### Example 4: TinyMCE Editor Plugin Enhancement
-**Detected**: `tiny_` repository name + request mentions "add feature"
-**Loads**:
-- core/base-instructions.md
-- plugins/tiny.md
-- plugins/tiny_patterns.md
-- tasks/enhance.md
-- patterns/forms.md (if form integration detected)
-- core/security-checklist.md
+When working on a Moodle plugin, activate the relevant skills:
 
-### Example 5: Adding Tests
-**Detected**: Request mentions "tests" or "phpunit"
-**Loads**:
-- core/base-instructions.md
-- plugins/{detected_type}.md
-- plugins/{detected_type}_patterns.md (if available)
-- tasks/test.md
-- core/security-checklist.md
+```
+# For a block plugin
+/skill moodle-core
+/skill moodle-block
 
-## Supported Plugin Types
+# For an activity module
+/skill moodle-core
+/skill moodle-activity
+```
 
-MoMoPDA provides comprehensive development guides and pattern documentation for the following Moodle plugin types:
+### Skill Combinations
 
-### Core Plugin Types
-- **Activity Modules** (`mod_*`) - Custom learning activities and assignments
-- **Block Plugins** (`block_*`) - Custom dashboard and course blocks
-- **Question Types** (`qtype_*`) - Custom question types for quizzes and assignments
-- **Question Bank Plugins** (`qbank_*`) - Question bank management and organization tools
+- **Always use `moodle-core`** - provides base coding standards, security practices, and CI validation
+- **Add one plugin-type skill** - matches the type of plugin you're developing
 
-### Enrolment and User Management
-- **Enrolment Plugins** (`enrol_*`) - Custom user enrolment methods and workflows
+### Environment Setup
 
-### Content and Filtering
-- **Filter Plugins** (`filter_*`) - Content processing and transformation filters
-- **TinyMCE Editor Plugins** (`tiny_*`) - Rich text editor extensions and tools
+Set the `MOODLE_DIR` environment variable to point to your Moodle installation:
 
-### Administration and Reporting
-- **Report Plugins** (`report_*`) - Administrative reports and analytics dashboards
+```bash
+export MOODLE_DIR=/path/to/moodle
+```
 
-### Each Plugin Type Includes:
-- **Development Guide** - Complete implementation instructions with code examples
-- **Patterns & Anti-Patterns** - Best practices, common pitfalls, and security considerations
-- **Testing Strategies** - Unit testing, integration testing, and quality assurance
-- **Performance Guidelines** - Optimization techniques and database best practices
-- **Security Checklists** - Vulnerability prevention and secure coding practices
+Or place Moodle at `../moodle` relative to your plugin directory.
 
-All guides are based on analysis of Moodle 5.x core implementations and follow official Moodle development standards.
+## Directory Structure
 
-## Getting Started
+```
+skills/
+├── moodle-core/
+│   ├── SKILL.md                # Core development practices
+│   ├── scripts/
+│   │   └── run-ci.sh           # CI validation script
+│   └── references/
+│       ├── ci-validation.md    # Detailed CI guide
+│       ├── design-principles.md # UI/UX guidelines
+│       └── html-writer.md      # HTML generation patterns
+│
+├── moodle-activity/
+│   ├── SKILL.md                # Activity module guide
+│   └── references/
+│       └── patterns.md         # Detailed patterns
+│
+├── moodle-block/
+│   └── SKILL.md                # Block plugin guide
+│
+└── [other plugin types...]
+```
 
-### Prerequisites
-- [Claude Code](https://claude.ai/code) or compatible agentic AI development environment
-- Git
-- Moodle development environment (optional but recommended)
+## CI Validation
 
-### Setup Instructions
+The `moodle-core` skill includes a CI validation script:
 
-1. **Clone the MoMoPDA repository**
-   ```bash
-   git clone https://github.com/your-org/momopda.git
-   cd momopda
-   ```
+```bash
+# From your plugin directory
+./path/to/skills/moodle-core/scripts/run-ci.sh
 
-2. **Create your plugin repository**
+# Or if moodle-plugin-ci is installed at ../moodle-plugin-ci/
+../moodle-plugin-ci/bin/moodle-plugin-ci phplint ./
+../moodle-plugin-ci/bin/moodle-plugin-ci codechecker ./
+```
 
-   Rename or create a new repository following Moodle plugin naming conventions:
+See [Moodle Plugin CI](https://moodlehq.github.io/moodle-plugin-ci/) for installation.
 
-   ```bash
-   # E.g., for a new block plugin
-   git clone https://github.com/your-org/momopda.git moodle-block_your_plugin_name
-   cd moodle-block_your_plugin_name
+## Example Prompts
 
-   ```
+### Creating a New Plugin
 
-   **Plugin Naming Convention Examples:**
-   - Activity modules: `moodle-mod_interactive_lesson`
-   - Block plugins: `moodle-block_nice_new_block`
-   - Question types: `moodle-qtype_custom_quiz`
-   - Enrolment plugins: `moodle-enrol_company_sso`
-   - Filter plugins: `moodle-filter_content_enhancer`
-   - TinyMCE plugins: `moodle-tiny_equation_editor`
-   - Report plugins: `moodle-report_analytics_dashboard`
-   - Question bank plugins: `moodle-qbank_question_organizer`
+> I want to create a block plugin that displays student progress charts on the course page.
 
-3. **Optional: Clone Moodle core for reference**
-   ```bash
-   # In parent directory
-   cd ..
-   git clone https://github.com/moodle/moodle.git
-   ```
+> Help me create a question type plugin for mathematical expression input with LaTeX rendering.
 
-   Your directory structure should look like:
-   ```
-   .
-   ├── moodle/                           # Moodle core (optional reference)
-   └── moodle-block_your_plugin_name/    # Your plugin with MoMoPDA
-       ├── AGENTS.md
-       ├── CLAUDE.md
-       └── .prompts/
-   ```
+### Bug Fixing
 
-4. **Optional but recommended: Install Moodle Plugin CI**
+> I need to fix a bug in my enrolment plugin's user sync feature - users aren't being enrolled when their company SSO token expires.
 
-   MoMoPDA includes automated quality validation using [Moodle Plugin CI](https://github.com/moodlehq/moodle-plugin-ci). The AI agent will automatically use these tools if available to validate code quality before completing tasks.
+### Complex Projects
 
-   **Requirements:**
-   - PHP 7.4 or later
-   - Composer
+> I want to create a question bank (qbank) plugin which adds bulk edit functionality. It should use the AI generation purpose from ../moodle-local_ai_manager and the architecture of ../moodle-qbank_questiongen to: 1) bulk select questions to modify, 2) add a modification prompt, 3) generate new versions according to the prompt, 4) add a prefix to distinguish new questions.
 
-   **Installation (Composer method):**
-   ```bash
-   # In parent directory (alongside your plugin and Moodle core)
-   cd ..
-   php composer.phar create-project moodlehq/moodle-plugin-ci moodle-plugin-ci ^4
-   ```
+> This repo has a modular prompt system for developing Moodle plugins. I need to develop a local plugin that adds User overrides to all the quizzes on the course area. MVP: add custom quiz time limit for a user.
 
-   **Alternative: PHAR package**
-   ```bash
-   # Download pre-built package
-   wget https://github.com/moodlehq/moodle-plugin-ci/releases/download/4.1.6/moodle-plugin-ci.phar
-   ```
+## Tips for Best Results
 
-   Your directory structure with CI tools:
-   ```
-   .
-   ├── moodle/                           # Moodle core (optional reference)
-   ├── moodle-plugin-ci/                 # CI tools (recommended)
-   └── moodle-block_your_plugin_name/    # Your plugin with MoMoPDA
-       ├── AGENTS.md
-       ├── CLAUDE.md
-       └── .prompts/
-   ```
+1. **Activate both skills** - always use `moodle-core` plus your plugin-type skill
+2. **Be specific** - mention features, requirements, and constraints
+3. **Reference examples** - point to existing Moodle plugins for similar functionality
+4. **Ask for tests** - each skill includes testing guidance
+5. **Request CI validation** - run quality checks before committing
 
-   **Configure environment variable:**
+## Contributing
 
-   The CI tools require the `MOODLE_DIR` environment variable to point to your Moodle core installation:
+Contributions welcome! Please follow the Agent Skills standard when adding new skills or improving existing ones.
 
-   ```bash
-   # Add to your ~/.bashrc or ~/.zshrc
-   export MOODLE_DIR=$HOME/git/moodle
+## License
 
-   # Or set it for the current session
-   export MOODLE_DIR=/home/$USER/git/moodle
+See [LICENSE](LICENSE) for details.
 
-   # Reload your shell configuration
-   source ~/.bashrc  # or source ~/.zshrc
-   ```
+## Resources
 
-   Adjust the path to match your actual Moodle installation location.
-
-   **What CI tools provide:**
-   - Automated coding standards validation (`codechecker`)
-   - PHP syntax checking (`phplint`)
-   - PHPUnit test execution
-   - Behat acceptance testing
-   - Plugin validation
-   - And more (see `.prompts/core/ci-validation.md`)
-
-   For more information, visit the [Moodle Plugin CI documentation](https://moodlehq.github.io/moodle-plugin-ci/).
-
-5. **Start your coding agent from the root of the repository**
-
-6. **Begin development**
-
-   Start by describing what you want to build. MoMoPDA will automatically detect your plugin type from the repository name and load the appropriate guides:
-
-   ```
-   "I want to create a new block plugin that displays student progress charts"
-   "Help me add a new question type for mathematical expressions"
-   "I need to fix a bug in my enrolment plugin's user sync feature"
-   ```
-
-### How It Works
-
-MoMoPDA automatically detects your plugin type and development context:
-
-- **Plugin Type Detection**: Based on repository name (e.g., `block_*`, `qtype_*`, `enrol_*`)
-- **Task Detection**: Based on git branch names, file changes, and user requests
-- **Context Loading**: Automatically loads relevant guides, patterns, and best practices
-- **Security & Quality**: Always includes security checklists and quality standards
-
-### Tips for Best Results
-
-1. **Use descriptive repository names** following Moodle conventions
-2. **Be specific in your requests** - mention features, requirements, and constraints
-3. **Reference existing Moodle plugins** if you want similar functionality
-4. **Ask for tests** - MoMoPDA includes comprehensive testing guidance
-5. **Request security reviews** when handling user data or permissions
-
-### Troubleshooting
-
-- **Plugin type not detected?** Ensure your repository name follows the `moodle-{plugintype}_{pluginname}` convention
-- **Missing guidance?** Check if your plugin type is supported in the list above
-- **Need custom patterns?** The guides include extension points for custom functionality
-- **Your new plugin has bugs?** Fix them and ask your coding agent to improve the patterns files!
-
-### Example prompts
-
->I want to create a question bank (qbank) plugin, which adds a bulk edit functionality to the question bank. The idea is to use the questiongeneration purpose of the ../moodle-local_ai_manager plugin, and the logic of the ../moodle-qbank_questiongen plugin, to attain the following functionality: 1. bulk select which questions to modify 2. add a modification prompt 3. generate new versions of the questions according to the modification prompt. 4. add a prefix to the new questions, so they can be distinguished from the old ones. For example: "Add feedback to all answer options of these questions". MVP would be to add support to the multichoice questions, but create similar architecture to the questiongen plugin so that other question types can be added later. The plugin must be dependent on the local_ai_manager plugin, and it can be dependent on the qbank_questiongen plugin as well, if it makes the implementation simpler.
-
-Notes: This worked, and the resulting plugin is here: https://github.com/wilenius/moodle-qbank_bulk_ai_edit.
-
->This repo has a modular prompt system for developing Moodle plugins. I need to develop a local plugin that adds User overrides to all the quizzes on the course area. To understand User overrides, look at the /home/hwileniu/git/moodle/public/mod/quiz. To understand local plugins, look at ../moodle-local_aiquestions. It needs to be added as a view to the course navigation. MVP: add custom quiz time limit for a user.
-
-Notes: This worked very well. It might be that it makes sense to note that the initial contents of the repo (momopda) and the end product (plugin) are different, but they'll be done in the same repo, so that the agent needs one step less to get on the right track. Resulting code here: https://github.com/wilenius/moodle-local_course_overrides
+- [Agent Skills Standard](https://agentskills.io)
+- [Moodle Developer Docs](https://moodledev.io)
+- [Moodle Plugin CI](https://moodlehq.github.io/moodle-plugin-ci/)
+- [Component Library](https://componentlibrary.moodle.com/)
