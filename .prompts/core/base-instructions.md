@@ -9,6 +9,7 @@
 * Wrapping lines: Indent with 4 spaces by default.
 * Terminate lines with LF
 * Filenames are lowercase only
+* Inline comments should begin with an upper case letter and end with  '.', '?' or '!'
 * Class and function names are lowercase words, separated by underscores
 * In the case of legacy functions (those not placed in classes), names should start with the Frankenstyle prefix and plugin name to avoid conflicts between plugins.
 * Variable names are lowercase words, no word separator.
