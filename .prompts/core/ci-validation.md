@@ -34,6 +34,8 @@ if [ -z "$MOODLE_DIR" ]; then
         MOODLE_DIR="../moodle"
     elif [ -f "${MOODLE_DIR}/config.php" ]; then
         MOODLE_DIR="${MOODLE_DIR}"
+    elif [ -f "/srv/lms/moodle/config.php" ]; then
+        MOODLE_DIR="/srv/lms/moodle"
     elif [ -f "/var/www/moodle/config.php" ]; then
         MOODLE_DIR="/var/www/moodle"
     elif [ -f "$HOME/moodle/config.php" ]; then
@@ -358,6 +360,7 @@ Before marking any task as complete, ensure:
 ### RECOMMENDED (Run When Possible):
 - [ ] `phpmd` - Quality violations reviewed and addressed
 - [ ] `savepoints` - Database upgrade scripts validated (if db/upgrade.php exists)
+- [ ] Backup/restore tested — if the plugin has a DB table or file area, back up and restore a course containing real data and confirm rows and files appear in the new course (see base-instructions.md § Backup / Restore)
 
 ### OPTIONAL (Skip in Current Environment):
 - [ ] `phpdoc` - Documentation complete (SKIP: requires local_moodlecheck)
